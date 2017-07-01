@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "outDir": "./built/",
+    "sourceMap": false,
+    "strict": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": true,
+    "alwaysStrict": true,
+    "pretty": true,
+    "noUnusedParameters": false,
+    "allowJs": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitThis": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "forceConsistentCasingInFileNames": true,
+    "strictNullChecks": true,
+    "module": "es6",
+    "moduleResolution": "node",
+    "target": "es6"
+  },
+  "include": [
+    "./src/**/*"
+  ]
+}

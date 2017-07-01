@@ -1,0 +1,12 @@
+{
+  "extends": "./tslint.json",
+  "rules": {
+    "no-void-expression": true,
+    "strict-boolean-expressions": true,
+    "strict-type-predicates": true,
+    "await-promise": true,
+    "no-for-in-array": true,
+    "no-cookies": true,
+    "no-unbound-method": true
+  }
+}

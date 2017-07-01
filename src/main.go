@@ -16,7 +16,7 @@ type Manager struct {
 }
 
 type Client struct {
-	id string
+	id     string
 	socket *websocket.Conn
 	send   chan []byte
 }
@@ -115,12 +115,13 @@ func wsPage(res http.ResponseWriter, req *http.Request) {
 		http.NotFound(res, req)
 		return
 	}
-	var room = req.PostFormValue("room")
-	if room == "" {
-		room = "Anon"
-	}
+	//var room = req.PostFormValue("room")
+	//if room == "" {
+	//	room = "Anon"
+	//}
 	client := &Client{id: uuid.NewV4().String(), socket: conn, send: make(chan []byte)}
 
+	// add client to manager
 	manager.register <- client
 
 	go client.read()
