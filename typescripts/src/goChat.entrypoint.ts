@@ -1,4 +1,4 @@
-import {SocketService} from "./websockets/socket.service"
+import {SocketService} from "./websockets/socketService"
 import {createNavBar} from "./components/navBar"
 import {createMessageBoard} from "./chatPage/messageBoard"
 import {ChatConnection} from "./websockets/chatConnection"
@@ -33,6 +33,7 @@ class GoChatRoot {
         const chatConnection = new ChatConnection(new SocketService(), this.messageBoardDiv, this.inputSegment.input)
 
         window.onkeypress = (e) => {
+            this.inputSegment.input.focus()
             const key = e.which || e.keyCode
             if (key === 13) { // 13 is enter
                 chatConnection.send()
@@ -45,8 +46,8 @@ class GoChatRoot {
     }
 
     reposition(): void {
-        this.messageBoardDiv.style.height = `${this.mainCanvas.clientHeight - this.inputSegment.div.clientHeight - this.navBarDiv.clientHeight}px`
-        this.inputSegment.form.style.width = `${this.inputSegment.div.clientWidth - (this.inputSegment.button.clientWidth + 8 + 10 + 8)}px`
+        this.messageBoardDiv.style.height = `${this.mainCanvas.clientHeight - this.inputSegment.div.clientHeight - 5 - this.navBarDiv.clientHeight}px`
+        this.inputSegment.form.style.width = `${this.inputSegment.div.clientWidth - (this.inputSegment.cameraImage.clientWidth + 15)}px`
     }
 }
 const goChat = new GoChatRoot()

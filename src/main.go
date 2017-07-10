@@ -39,13 +39,13 @@ func (manager *Manager) start() {
 		select {
 		case conn := <-manager.register:
 			manager.clients[conn] = true
-			jsonMessage, _ := json.Marshal(&Message{Content: "/A new socket has connected."})
+			jsonMessage, _ := json.Marshal(&Message{Content: "A new socket has connected."})
 			manager.send(jsonMessage, conn)
 		case conn := <-manager.unregister:
 			if _, ok := manager.clients[conn]; ok {
 				close(conn.send)
 				delete(manager.clients, conn)
-				jsonMessage, _ := json.Marshal(&Message{Content: "/A socket has disconnected."})
+				jsonMessage, _ := json.Marshal(&Message{Content: "	A socket has disconnected."})
 				manager.send(jsonMessage, conn)
 			}
 		case message := <-manager.broadcast:

@@ -2,16 +2,16 @@ const inputDivHeight = 38;
 export class MessageInput {
     constructor() {
         this.div = document.createElement("div");
-        this.div.style.position = "absolute";
         this.div.style.boxSizing = "border-box";
         this.div.style.width = "100%";
         this.div.style.height = `${this.div}px`;
+        this.div.style.marginBottom = `5px`;
         this.div.style.bottom = "0";
         this.div.style.left = "0";
         this.form = document.createElement("form");
-        this.form.style.height = "100%";
-        this.form.style.marginLeft = "10px";
         this.form.style.display = "inline-block";
+        this.form.style.height = "100%";
+        this.form.style.marginLeft = "45px";
         this.form.style.boxSizing = "border-box";
         this.input = document.createElement("input");
         this.input.style.width = "100%";
@@ -26,22 +26,16 @@ export class MessageInput {
         this.input.style.boxSizing = "border-box";
         this.input.autocomplete = "off";
         this.form.appendChild(this.input);
-        this.button = document.createElement("span");
-        this.button.style.position = "absolute";
-        this.button.innerText = "SEND";
-        this.button.style.borderRadius = "9px";
-        this.button.style.fontSize = "1em";
-        this.button.style.padding = "5px 8px 4px";
-        this.button.style.marginLeft = "8px";
-        this.button.style.marginRight = "8px";
-        this.button.style.marginTop = "4px";
-        this.button.style.backgroundColor = "#cd486b";
-        this.button.style.color = "#ffffff";
-        this.button.style.fontFamily = "Helvetica, Arial, sans-serif";
-        this.button.style.background = "linear-gradient(#f66d51, #eb3404)";
-        this.button.style.boxSizing = "border-box";
-        this.button.style.cursor = "pointer";
+        this.cameraImage = document.createElement("img");
+        this.cameraImage.style.display = "inline-block";
+        this.cameraImage.style.boxSizing = "border-box";
+        this.cameraImage.src = `./assets/camera.svg`;
+        this.cameraImage.style.height = "35px";
+        this.cameraImage.style.width = "35px";
+        this.cameraImage.style.marginLeft = "5px";
+        this.cameraImage.style.position = "absolute";
+        this.cameraImage.style.bottom = "5";
+        this.div.appendChild(this.cameraImage);
         this.div.appendChild(this.form);
-        this.div.appendChild(this.button);
     }
 }

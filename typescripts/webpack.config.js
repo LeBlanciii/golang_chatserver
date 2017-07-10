@@ -1,5 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
+var CopyWebpackPlugin = require("copy-webpack-plugin")
 
 module.exports = {
     entry: './src/goChat.entrypoint.ts',
@@ -36,7 +37,8 @@ module.exports = {
         overlay: true,
         port: 8000,
         inline: true
-    }
+    },
+    plugins: [new CopyWebpackPlugin([{from: './demo/assets'}])]
 }
 
 if (process.env.NODE_ENV === 'production') {

@@ -1,4 +1,4 @@
-import {SocketService} from "./socket.service"
+import {SocketService} from "./socketService"
 
 export class ChatConnection {
     public messages: string[]
@@ -13,7 +13,14 @@ export class ChatConnection {
                     data = incoming.message
                 }
                 this.messages.push(data)
-                messageBoard.innerText = `${messageBoard.innerText}\n ${data}`
+                // messageBoard.innerText = `${messageBoard.innerText}\n ${data}`
+                const message = document.createElement("div")
+                message.innerText = data
+                message.style.textAlign = "right"
+                message.style.height = "15px"
+                messageBoard.appendChild(message)
+                console.log(messageBoard.scrollHeight)
+                messageBoard.scrollTop = messageBoard.scrollHeight
             }
             if (incoming.action === "close") {
                 this.messages.push(incoming.message)
